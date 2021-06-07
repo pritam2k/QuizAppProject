@@ -2,6 +2,7 @@ console.log("hello world");
 
 const modalBtns = [...document.getElementsByClassName("modal-button")];
 const modalBody = document.getElementById("modal-body-confirm");
+const modalLabel = document.getElementById("exampleModalLabel");
 const startBtn = document.getElementById("start-button");
 
 const url = window.location.href;
@@ -14,9 +15,14 @@ modalBtns.forEach((modalBtn) =>
     const difficulty = modalBtn.getAttribute("data-difficulty");
     const scoreToPass = modalBtn.getAttribute("data-pass");
     const time = modalBtn.getAttribute("data-time");
+    const topic = modalBtn.getAttribute("data-topic");
+
+    modalLabel.innerHTML = `
+        <div class="h5">:: ${name} ::</div>
+    `;
 
     modalBody.innerHTML = `
-        <div class="h5 mb-3">Are you sure you want to begin "<b>${name}</b>"?</div>
+        <div class="h5 mb-3">Are you sure you want to begin the quiz?</div>
         <div class="text-muted">
             <ul>
                 <li>difficulty: <b>${difficulty}</b></li>

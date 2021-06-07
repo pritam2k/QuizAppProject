@@ -25,6 +25,7 @@ modalBtns.forEach((modalBtn) =>
         <div class="h5 mb-3">Are you sure you want to begin the quiz?</div>
         <div class="text-muted">
             <ul>
+                <li>Topic: <b>${topic}</b></li>
                 <li>Difficulty: <b>${difficulty}</b></li>
                 <li>Number of questions: <b>${numQuestions}</b></li>
                 <li>Score to pass: <b>${scoreToPass}%</b></li>

@@ -32,6 +32,7 @@ home
 
 <div class="h1">Quiz List</div>
 <hr>
+{% if request.user.is_authenticated %}
 {% for obj in object_list %}
 <button class="btn btn-primary modal-button" data-pk="{{obj.pk}}" data-quiz="{{obj.name}}" data-topic="{{obj.topic}}"
     data-questions="{{obj.number_of_questions}}" data-difficulty="{{obj.get_difficulty_display}}"
@@ -39,6 +40,8 @@ home
     data-target="#quizStartModal">
     {{obj.name}}
 </button><br>
-
 {% endfor %}
+{% else %}
+<a href="{% url 'quizes:login' %}" class="btn btn-primary">Login</a>
+{% endif %}
 {% endblock content %}

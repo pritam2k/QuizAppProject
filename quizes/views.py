@@ -1,9 +1,11 @@
+from .forms import UserRegistrationForm
 from django.shortcuts import render
 from .models import Quiz
 from django.views.generic import ListView
 from django.http import JsonResponse
 from questions.models import Question, Answer
 from results.models import Result
+from django.contrib import messages
 
 
 class QuizListView(ListView):
@@ -78,3 +80,16 @@ def save_quiz_view(request, pk):
             return JsonResponse({'passed': True, 'score': score_, 'results': results})
         else:
             return JsonResponse({'passed': False, 'score': score_, 'results': results})
+
+
+def register(request):
+    if request.method == 'POST':
+        form = UserRegistrationForm(request.POST)
+
+        if form.is_valid():
+            messages.success(
+                request, "Congratulations !!! New Account created successfully :)")
+            form.save()
+    else:
+        form = UserRegistrationForm()
+    return render(request, 'quizes/register.html', {'form': form})

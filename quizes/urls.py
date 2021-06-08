@@ -3,7 +3,8 @@ from .views import (
     QuizListView,
     quiz_view,
     quiz_data_view,
-    save_quiz_view
+    save_quiz_view,
+    register
 )
 from .forms import LoginForm, ChangePasswordForm, MyPasswordResetForm, MySetPasswordForm
 from django.conf import settings
@@ -20,5 +21,5 @@ urlpatterns = [
     path('<pk>/data/', quiz_data_view, name='quiz-data-view'),
     path('accounts/login/', auth_views.LoginView.as_view(template_name="quizes/login.html",
                                                          authentication_form=LoginForm), name="login"),
-    path('register/', views.register, name="register"),
+    path('register/', register, name="register"),
 ]

@@ -1,5 +1,5 @@
 from .forms import UserRegistrationForm
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Quiz
 from django.views.generic import ListView
 from django.http import JsonResponse
@@ -90,6 +90,7 @@ def register(request):
             messages.success(
                 request, "Congratulations !!! New Account created successfully :)")
             form.save()
+        return redirect('quizes:login')
     else:
         form = UserRegistrationForm()
-    return render(request, 'quizes/register.html', {'form': form})
+        return render(request, 'quizes/register.html', {'form': form})

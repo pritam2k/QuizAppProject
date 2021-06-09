@@ -22,5 +22,6 @@ urlpatterns = [
     path('accounts/login/', auth_views.LoginView.as_view(template_name="quizes/login.html",
                                                          authentication_form=LoginForm), name="login"),
     path('accounts/register/', register, name="register"),
-    path('accounts/logout/', auth_views.LogoutView.as_view(next_page='quizes:main-view'), name="logout"),
+    path('accounts/logout/',
+         auth_views.LogoutView.as_view(next_page='quizes:main-view'), name="logout"),
 ]

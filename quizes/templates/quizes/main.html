@@ -31,6 +31,9 @@ home
 </div>
 
 <div class="h1">Quiz List</div>
+{% if request.user.is_authenticated %}
+    <a href="{% url 'quizes:logout' %}" class="btn btn-primary">Logout</a>
+{% endif %}
 <hr>
 {% if request.user.is_authenticated %}
 {% for obj in object_list %}

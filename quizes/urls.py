@@ -21,5 +21,6 @@ urlpatterns = [
     path('<pk>/data/', quiz_data_view, name='quiz-data-view'),
     path('accounts/login/', auth_views.LoginView.as_view(template_name="quizes/login.html",
                                                          authentication_form=LoginForm), name="login"),
-    path('register/', register, name="register"),
+    path('accounts/register/', register, name="register"),
+    path('accounts/logout/', auth_views.LogoutView.as_view(next_page='quizes:main-view'), name="logout"),
 ]

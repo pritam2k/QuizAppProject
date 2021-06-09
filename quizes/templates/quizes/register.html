@@ -5,13 +5,13 @@
 
 {% block content %}
 
-<div class="container col-lg-4">
-    <div class="row col-sm-6 mx-auto border rounded">
+<div class="container col-sm-6 mt-1">
+    <div class="row mx-auto p-2 border rounded">
 
 
-        <h3 class="text-center text-3xl"><b>Sign Up</b></h3>
+        <h3>Sign Up</h3>
         <hr>
-        <form action="" method="post" novalidate class="shadow p-5">
+        <form action="" method="post" novalidate class="shadow p-5 mx-auto col-sm-12">
             {% if messages %}
             {% for msg in messages %}
             <p {% if msg.tags %} class="alert alert-{{msg.tags}}" {% endif %}>{{msg}}</p>

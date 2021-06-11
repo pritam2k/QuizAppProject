@@ -90,7 +90,10 @@ def register(request):
             messages.success(
                 request, "Congratulations !!! New Account created successfully :)")
             form.save()
-        return redirect('quizes:login')
-    else:
-        form = UserRegistrationForm()
-        return render(request, 'quizes/register.html', {'form': form})
+            return redirect('quizes:login')
+        elif form.errors:
+            messages.error(
+                request, form.errors
+            )
+    form = UserRegistrationForm()
+    return render(request, 'quizes/register.html', {'form': form})

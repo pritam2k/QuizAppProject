@@ -101,7 +101,7 @@ const sendData = () => {
     success: function (response) {
       const results = response.results;
       console.log(results);
-      quizForm.classList.add("not-visible");
+      quizForm.style.display = "none";
 
       scoreBox.innerHTML = `${
         response.passed ? "Congratulations! " : "Ups..:( "

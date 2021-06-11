@@ -32,7 +32,7 @@ home
 
 <div class="h1">Quiz List</div>
 {% if request.user.is_authenticated %}
-    <a href="{% url 'quizes:logout' %}" class="btn btn-primary">Logout</a>
+<a href="{% url 'quizes:logout' %}" class="btn btn-primary">Logout</a>
 {% endif %}
 <hr>
 {% if request.user.is_authenticated %}
@@ -42,7 +42,7 @@ home
     data-time="{{obj.time}}" data-pass="{{obj.required_score_to_pass}}" data-toggle="modal"
     data-target="#quizStartModal">
     {{obj.name}}
-</button><br>
+</button><br><br>
 {% endfor %}
 {% else %}
 <a href="{% url 'quizes:login' %}" class="btn btn-primary">Login</a>
